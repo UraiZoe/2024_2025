@@ -10,3 +10,4 @@ console.log(exports);       //
 */
 
 console.log("Hello World!");
+require('./calculator.js');
