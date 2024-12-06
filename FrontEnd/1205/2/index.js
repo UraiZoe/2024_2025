@@ -10,4 +10,6 @@ console.log(exports);       //
 */
 
 console.log("Hello World!");
-require('./calculator.js');
+const add = require('./calculator.js');
+console.log(add(2, 3));
+require('http');
