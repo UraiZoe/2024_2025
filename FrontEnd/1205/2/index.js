@@ -22,7 +22,7 @@ console.log(add(2, 3));
 require('http');
 
 const server =http.createServer(function(req, res){
-    res.writeHead(280); //start
+    res.writeHead(200); //start
     res.end('Hello World!'); //finish
 });
 
