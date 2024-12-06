@@ -1,4 +1,6 @@
 //wraapper function
+
+
 /*
 console.log("ok");
 console.log(_dirname);      //file name
@@ -20,8 +22,8 @@ console.log(add(2, 3));
 require('http');
 
 const server =http.createServer(function(req, res){
-    res.writeHead(280);
-    res.end('Hello World!');
+    res.writeHead(280); //start
+    res.end('Hello World!'); //finish
 });
 
-server.listen(8080);
+server.listen(8080); //port
