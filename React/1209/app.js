@@ -5,13 +5,13 @@ btn.onclick = function () {
 btn.innerHTML = "Natív gomb";
 document.getElementById("nativ-button-container").appendChild(btn);
 
-const gomb = React.createElement("button",  //    "gomb": Unkown word.
+const gomb = React.createElement("button",  // 2db paramétert használ
     {
-        onclick: function()
+        onClick: function()
         {
-            alert("Ez eg react kód!");
+            alert("Ez egy react kód!");
         },
     },
-    "React gomb"   // "gomb": Unkown word.
+    "React gomb"   // második
 )
-ReactDom.rander(gomb,documentElementById("react-button-container"));
+ReactDOM.render(gomb, document.getElementById("react-button-container"));
