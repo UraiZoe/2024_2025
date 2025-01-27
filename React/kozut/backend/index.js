@@ -52,7 +52,7 @@ app.post("/ujregio", (req, res) => {
 });
 
 app.delete("/regiotorlese/:id", (req, res) => {
-    const sql = "DELETE FROM `regiok` WHERE `Rid` = ?";
+    const query = "DELETE FROM `regiok` WHERE `Rid` = ?";
     db.query(sql, (err, result) => {
         if (err) {return res.json(err);}
         return res.json(result);
