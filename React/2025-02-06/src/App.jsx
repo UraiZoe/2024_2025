@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter, Router } from 'react-router-dom';
 
 function App() {
 
@@ -6,7 +8,11 @@ function App() {
     <>
       <h1>Tz</h1>
       <div>
-        <p>Ez a fő oldal.</p>
+        <BrowserRouter>        
+          <Router>
+            <p>Ez a fő oldal.</p>
+          </Router>
+        </BrowserRouter>
       </div>
     </>
   )
