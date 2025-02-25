@@ -1,21 +1,15 @@
 import { useState, useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import Table from 'react-bootstrap/Table';
+import Form from 'react-bootstrap/Form';
 import { use } from 'react';
 
-
-function Szobaktablazata() {
+function Valasztott() {
     const [data, setdata] = useState([]);
-    const [szobak, setSzobak] = useState(0);
-
     useEffect(() => {
-        axios.get("http://localhost:3001/szobak")
+        axios.get("http://localhost:3001/torpe/1")
         .then((response) => {
           setdata(response.data);
-
-          const osszesFerohely = response.data.reduce((sum, szoba) => sum + szoba.agy, 0);
-          setSzobak(osszesFerohely);
         })
         .catch((err) => {
           console.log(err);
@@ -29,21 +23,22 @@ function Szobaktablazata() {
             <thead>
                 <tr>
                   <th>Szoba neve</th>
-                  <th>Ágyak száma</th>
+                  <th>Érkezés dátuma</th>
+                  <th>Távozás dátuma</th>
                 </tr>
             </thead>
             <tbody>
-              {data.map(szoba =>
+              {data.map(valasztott =>
                 <tr>
-                  <td>{szoba.sznev}</td>
-                  <td>{szoba.agy} ágyas</td>
+                  <td>{valasztott.vnev}</td>
+                  <td>{valasztott.erk} fő</td>
+                  <td>{valasztott.tav} éjszaka</td>
                 </tr>
                 )}
             </tbody>
             </Table>
-            <strong>A házban összesen {szobak} fő fér el.</strong>
         </>
     )
 }
 
-export default Szobaktablazata
+export default Valasztott

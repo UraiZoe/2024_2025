@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+//használt elemek
 import 'tachyons'
+import { useState } from 'react'
+//css
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css'
+//Elemek
 import { Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+//Képek
 import logoKep from "/img/logo.png"
 import holloKo from "/img/holloko_masolata.jpg"
 import ketAgyas from "/img/ketagyas.jpg"
+//Komponensek
 import Szobaktablazata from '../components/Szobaktablazata';
 import Szobakkihasznaltsaga from '../components/Szobakkihasznaltsaga';
-import Szobafoglaltsag from '../components/Szobafoglaltsag';
 import Szobakfoglaltsaga from '../components/Szobafoglaltsag';
+
+
 
 function Home() {
 
@@ -20,7 +27,7 @@ function Home() {
         <div>
             <Row>
                 <Col>
-                <article class="cf ph3 ph8-ns pv4 bg-green">
+                <article id="doboz" class="cf ph3 ph8-ns pv4 bg-green">
                     <header class="fn fl-ns w-90-ns pr4-ns">
                         <h3 class="mb4 mt0 lh-title">Napraforgós Nemzeti Tanúsító Védjegy célja</h3>
                     </header>
@@ -57,13 +64,13 @@ function Home() {
                 </article>
                 </Col>
                 <Col>
-                <article class="cf ph3 ph8-ns pv4 bg-green">
+                <article id="doboz" class="cf ph3 ph8-ns pv4 bg-green">
                     <header class="fn fl-ns w-90-ns pr4-ns">
                         <h3 class="mb3 mt0 lh-title">A hét törpe fogadó</h3>
                     </header>
                     <div class="w-80-ns">
-                        <Szobaktablazata/>
-                        <b>Feszültségünk:</b><br/>
+                        <Szobaktablazata/><br/>
+                        <strong>Feszültségünk:</strong><br/>
                         
                         <ol>
                             <li>Ruhásszekrény</li>

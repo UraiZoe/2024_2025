@@ -31,8 +31,8 @@ function Szobakkihasznaltsaga() {
               {data.map(szoba =>
                 <tr>
                   <td>{szoba.sznev}</td>
-                  <td>{szoba.vendegekszama}</td>
-                  <td>{szoba.szallasiIdo}</td>
+                  <td>{szoba.vendegekszama} fő</td>
+                  <td>{szoba.szallasiIdo} éjszaka</td>
                 </tr>
                 )}
             </tbody>

@@ -43,7 +43,7 @@ app.get('/SzobakFoglaltsaga', (req, res) => {
 })
 
 app.get('/torpe/:id', (req, res) => {
-    const sqlParancsok = "SELECT `vnev`, `erk`, `tav` FROM szobak INNER JOIN foglalasok ON szobak.szazon = foglalasok.szoba INNER JOIN vendegek ON vendegek.vsorsz = foglalasok.vendeg WHERE szobak.szazon =?;"
+    const sqlParancsok = "SELECT vendegek.vnev, foglalasok.erk, foglalasok.tav FROM szobak INNER JOIN foglalasok ON szobak.szazon = foglalasok.szoba INNER JOIN vendegek ON vendegek.vsorsz = foglalasok.vendeg WHERE szobak.szazon =?;"
     db.query(sqlParancsok, req.params.id, (err, result)=> {
         if(err){
             res.json(err);

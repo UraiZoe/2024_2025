@@ -24,7 +24,9 @@ function Szobakfoglaltsaga() {
                     {data.map(szoba => 
                         <option value={szoba.szazon}> {szoba.sznev}</option>
                     )}
+
                 </Form.Select>
+                <button type="submit">Küldés</button>
             </div>
         </>
     )
