@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.send('Hello Bástya!')
 })
 
-app.get('/Szobak', (req, res) => {
+app.get('/szobak', (req, res) => {
     const sqlParancsok = "SELECT `sznev`, `agy` FROM `szobak`;"
     db.query(sqlParancsok, (err, result)=> {
         res.json(result);
@@ -33,7 +33,7 @@ app.get('/SelectSzobak', (req, res) => {
     })
 })
 app.get('/SzobakFoglaltsaga', (req, res) => {
-    const sqlParancsok = "SELECT szobak.sznev, COUNT(vendeg) AS vendegekszama, SUM(tav - erk) AS szallas FROM szobak INNER JOIN foglalasok ON szobak.szazon = foglalasok.szoba GROUP BY sznev;"
+    const sqlParancsok = "SELECT szobak.sznev, COUNT(vendeg) AS vendegekszama, SUM(tav - erk) AS szallasiIdo FROM szobak INNER JOIN foglalasok ON szobak.szazon = foglalasok.szoba GROUP BY sznev ORDER BY szallasiIdo ASC;"
     db.query(sqlParancsok, (err, result)=> {
         if(err){
             res.json(err);

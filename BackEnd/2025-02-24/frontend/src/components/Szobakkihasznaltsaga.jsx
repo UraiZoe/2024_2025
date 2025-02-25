@@ -4,10 +4,10 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import { use } from 'react';
 
-function Szobaktablazata() {
+function Szobakkihasznaltsaga() {
     const [data, setdata] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:3001/szobak")
+        axios.get("http://localhost:3001/SzobakFoglaltsaga")
         .then((response) => {
           setdata(response.data);
         })
@@ -23,14 +23,16 @@ function Szobaktablazata() {
             <thead>
                 <tr>
                   <th>Szoba neve</th>
-                  <th>Ágyak száma</th>
+                  <th>Vendégek száma</th>
+                  <th>Vendégéjszakák száma</th>
                 </tr>
             </thead>
             <tbody>
               {data.map(szoba =>
                 <tr>
                   <td>{szoba.sznev}</td>
-                  <td>{szoba.agy}</td>
+                  <td>{szoba.vendegekszama}</td>
+                  <td>{szoba.szallasiIdo}</td>
                 </tr>
                 )}
             </tbody>
@@ -39,4 +41,4 @@ function Szobaktablazata() {
     )
 }
 
-export default Szobaktablazata
+export default Szobakkihasznaltsaga
