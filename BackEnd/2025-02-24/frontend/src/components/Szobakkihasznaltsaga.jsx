@@ -7,7 +7,7 @@ import { use } from 'react';
 function Szobakkihasznaltsaga() {
     const [data, setdata] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:3001/SzobakFoglaltsaga")
+        axios.get("http://localhost:3001/Szobakfoglaltsaga")
         .then((response) => {
           setdata(response.data);
         })

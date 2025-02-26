@@ -1,9 +1,8 @@
 const express = require('express')
-var cors = require('cors')
 const app = express()
-const mysql = require('mysql')
-
+var cors = require('cors')
 app.use(cors())
+const mysql = require('mysql')
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -12,10 +11,6 @@ const db = mysql.createConnection({
     user: "root",
     password: ""
 });
-
-app.get('/', (req, res) => {
-  res.send('Hello Bástya!')
-})
 
 app.get('/szobak', (req, res) => {
     const sqlParancsok = "SELECT `sznev`, `agy` FROM `szobak`;"
@@ -32,7 +27,7 @@ app.get('/SelectSzobak', (req, res) => {
         res.json(result);  
     })
 })
-app.get('/SzobakFoglaltsaga', (req, res) => {
+app.get('/Szobakfoglaltsaga', (req, res) => {
     const sqlParancsok = "SELECT szobak.sznev, COUNT(vendeg) AS vendegekszama, SUM(tav - erk) AS szallasiIdo FROM szobak INNER JOIN foglalasok ON szobak.szazon = foglalasok.szoba GROUP BY sznev ORDER BY szallasiIdo ASC;"
     db.query(sqlParancsok, (err, result)=> {
         if(err){
@@ -42,7 +37,7 @@ app.get('/SzobakFoglaltsaga', (req, res) => {
     })
 })
 
-app.get('/torpe/:id', (req, res) => {
+app.get('/Szobafoglalatsag/:id', (req, res) => {
     const sqlParancsok = "SELECT vendegek.vnev, foglalasok.erk, foglalasok.tav FROM szobak INNER JOIN foglalasok ON szobak.szazon = foglalasok.szoba INNER JOIN vendegek ON vendegek.vsorsz = foglalasok.vendeg WHERE szobak.szazon =?;"
     db.query(sqlParancsok, req.params.id, (err, result)=> {
         if(err){

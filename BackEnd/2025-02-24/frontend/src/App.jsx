@@ -12,7 +12,7 @@ function App() {
      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="valasztottszoba" element={<Valasztottszoba />} />
+        <Route path="Valasztottszoba/:id" element={<Valasztottszoba />} />
       </Routes>
     </BrowserRouter>
     </>

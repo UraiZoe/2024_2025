@@ -1,17 +1,18 @@
 //használt elemek
-import 'tachyons'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from "axios"
+import 'tachyons'
 //css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'
 //Elemek
 import { Container } from 'react-bootstrap';
+import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 //Képek
-import ketAgyas from "/img/ketagyas.jpg"
+import ketAgyas from "/img/ketagyas.jpg";
 //Komponensek
 import Szobaktablazata from '../components/Szobaktablazata';
 
@@ -22,7 +23,7 @@ function Valasztottszoba() {
   const { id } = useParams()
   const [vendegek, setVendegek] = useState([]);
   useEffect(() => {
-      axios.get(`http://localhost:3001/valszobafoglaltsag/` + id)
+      axios.get(`http://localhost:3001/Szobafoglalatsag/` + id)
           .then(function (response) {
               setVendegek(response.data);
               //console.log(response);
@@ -32,6 +33,7 @@ function Valasztottszoba() {
           });
   }, []);
   console.log(vendegek);
+  
   return (
     <>
      <Container>
@@ -72,8 +74,25 @@ function Valasztottszoba() {
                 </Col>
            </Row>
         </div>
-        <Valasztott/>
       </Container>
+      <Table striped bordered hover>
+            <thead>
+                <tr>
+                  <th>Szoba neve</th>
+                  <th>Érkezés dátuma</th>
+                  <th>Távozás dátuma</th>
+                </tr>
+            </thead>
+            <tbody>
+              {vendegek.map(valasztott =>
+                <tr>
+                  <td>{valasztott.vnev}</td>
+                  <td>{valasztott.erk}</td>
+                  <td>{valasztott.tav}</td>
+                </tr>
+                )}
+            </tbody>
+            </Table>
     </>
   )
 }
